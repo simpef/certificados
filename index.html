@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Encontre e baixe seu certificado do SIMPEF Unimontes. Edições de 2021 a 2026.">
+  <meta name="theme-color" content="#0d2f66">
+  <title>Busca de certificados | SIMPEF Unimontes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230d2f66'/%3E%3Cpath d='M12 11h16v17H12zM15 16h10m-10 4h10' fill='none' stroke='%23ffd54f' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+  <script defer src="catalogo.js"></script>
+  <script defer src="busca.js"></script>
+</head>
+<body>
+  <a class="skip" href="#busca">Ir para a busca</a>
+  <main class="wrap">
+    <header class="cab">
+      <div class="selos"><span class="selo s">IX SIMPEF</span><span class="selo e">III ENPRO</span><span class="selo h">I Seminário HIPPOS BR</span></div>
+      <div class="hero-content">
+        <div>
+          <p class="kicker">UNIMONTES · EDIÇÃO 2026</p>
+          <h1>Certificados do SIMPEF</h1>
+          <p class="lead">Consulte os certificados do <strong>IX SIMPEF, III ENPRO e I Seminário HIPPOS BR</strong>, realizados em 6 e 7 de novembro de 2026.</p>
+        </div>
+        <div class="hero-count"><strong id="total-atual">359</strong><span>certificados de 2026</span></div>
+      </div>
+    </header>
+
+    <section class="search-card" id="busca" aria-labelledby="busca-titulo">
+      <h2 id="busca-titulo">Encontre seu certificado</h2>
+      <p class="instruction" id="instrucao">Digite seu nome completo ou parte dele. Para certificados de trabalhos, busque pelo <strong>nome do autor principal</strong>, mesmo que você seja coautor.</p>
+      <form id="filtros" role="search" aria-label="Busca de certificados">
+        <div class="field name-field">
+          <label for="nome">Nome</label>
+          <div class="input-wrap">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg>
+            <input id="nome" type="search" placeholder="Ex.: nome e sobrenome" autocomplete="off" aria-describedby="instrucao" maxlength="120">
+          </div>
+        </div>
+        <div class="field">
+          <label for="ano">Edição</label>
+          <select id="ano">
+            <option value="2026" selected>2026 · Edição atual</option>
+            <option value="anteriores">Edições anteriores</option>
+            <option value="todas">Todas as edições</option>
+            <option value="2025">2025</option><option value="2024">2024</option>
+            <option value="2023">2023</option><option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="categoria">Categoria</label>
+          <select id="categoria"><option value="">Todas as categorias</option></select>
+        </div>
+      </form>
+      <p class="hint">A busca funciona com ou sem acentos. Selecione a edição em que você participou.</p>
+      <noscript><p class="hint">Ative o JavaScript para usar a busca ou consulte o acervo no link abaixo.</p></noscript>
+    </section>
+
+    <section class="results" aria-labelledby="resultados-titulo">
+      <div class="results-head">
+        <h2 id="resultados-titulo">Resultados</h2>
+        <span id="status" role="status" aria-live="polite"></span>
+      </div>
+      <div class="empty" id="vazio">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55"><path d="M6 3h9l3 3v15H6zM14 3v5h5M9 12h6m-6 4h6"/></svg>
+        <p id="mensagem">Digite um nome para ver os certificados da edição selecionada.</p>
+      </div>
+      <ul id="resultados" class="result-list"></ul>
+      <button type="button" id="mais" hidden>Mostrar mais resultados</button>
+    </section>
+
+    <footer>
+      <span>Simpósio de Pesquisa em Educação Física · Unimontes</span>
+      <a href="https://github.com/simpef/certificados" target="_blank" rel="noopener noreferrer">Consultar acervo no GitHub ↗</a>
+    </footer>
+  </main>
+</body>
+</html>
