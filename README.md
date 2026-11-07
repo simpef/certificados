@@ -2,6 +2,8 @@
 
 Acervo público de certificados do Simpósio de Pesquisa em Educação Física da Unimontes.
 
+[Buscar certificado por nome, edição ou categoria](https://simpef.github.io/certificados/).
+
 Escolha o ano, abra a categoria e clique no PDF correspondente para visualizar ou baixar.
 
 | Edição | Arquivos |
