@@ -12,6 +12,7 @@
   const empty = document.querySelector("#vazio");
   const message = document.querySelector("#mensagem");
   const more = document.querySelector("#mais");
+  const searchButton = document.querySelector("#buscar");
   const normalize = (name) => name.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
   const catalog = (window.CATALOGO_SIMPEF ?? []).map((item) => ({ ...item, search: normalize(item.nome) }));
@@ -72,7 +73,7 @@
     }
   }
 
-  function search() {
+  function search(explicit = false) {
     const name = normalize(query.value);
     list.replaceChildren();
     shown = 0;
@@ -85,7 +86,7 @@
       return;
     }
     if (name.length < 2) {
-      message.textContent = name.length ? "Digite pelo menos duas letras para pesquisar." : "Digite um nome para ver os certificados da edição selecionada.";
+      message.textContent = name.length || explicit ? "Digite pelo menos duas letras para pesquisar." : "Digite um nome para ver os certificados da edição selecionada.";
       return;
     }
     const words = name.split(" ");
@@ -102,10 +103,17 @@
   }
 
   document.querySelector("#total-atual").textContent = catalog.filter((item) => item.ano === current).length || "359";
-  form.addEventListener("submit", (event) => { event.preventDefault(); search(); });
-  query.addEventListener("input", search);
+  form.addEventListener("submit", (event) => { event.preventDefault(); search(true); });
+  searchButton.addEventListener("click", () => search(true));
+  query.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.isComposing) {
+      event.preventDefault();
+      search(true);
+    }
+  });
+  query.addEventListener("input", () => search());
   year.addEventListener("change", () => { categories(); search(); });
-  category.addEventListener("change", search);
+  category.addEventListener("change", () => search());
   more.addEventListener("click", showMore);
   categories();
   search();
