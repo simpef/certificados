@@ -13,6 +13,7 @@
   const message = document.querySelector("#mensagem");
   const more = document.querySelector("#mais");
   const searchButton = document.querySelector("#buscar");
+  const searchAll = document.querySelector("#buscar-todas");
   const normalize = (name) => name.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, " ").trim();
   const catalog = (window.CATALOGO_SIMPEF ?? []).map((item) => ({ ...item, search: normalize(item.nome) }));
@@ -80,6 +81,7 @@
     matches = [];
     status.textContent = "";
     more.hidden = true;
+    searchAll.hidden = true;
     empty.hidden = false;
     if (!catalog.length) {
       message.textContent = "O catálogo não carregou. Atualize a página ou consulte o acervo no GitHub.";
@@ -95,7 +97,8 @@
       && words.every((word) => item.search.includes(word)));
     if (!matches.length) {
       status.textContent = "Nenhum certificado encontrado";
-      message.textContent = "Tente outro trecho do nome ou selecione outra edição. Para trabalhos, use o nome do autor principal.";
+      message.textContent = "Tente outro trecho do nome. Para trabalhos, use o nome do autor principal.";
+      searchAll.hidden = year.value === "todas" && !category.value;
       return;
     }
     empty.hidden = true;
@@ -105,6 +108,13 @@
   document.querySelector("#total-atual").textContent = catalog.filter((item) => item.ano === current).length || "359";
   form.addEventListener("submit", (event) => { event.preventDefault(); search(true); });
   searchButton.addEventListener("click", () => search(true));
+  searchAll.addEventListener("click", () => {
+    year.value = "todas";
+    category.value = "";
+    categories();
+    search(true);
+    query.focus();
+  });
   query.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && !event.isComposing) {
       event.preventDefault();
