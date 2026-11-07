@@ -105,7 +105,8 @@
     showMore();
   }
 
-  document.querySelector("#total-atual").textContent = catalog.filter((item) => item.ano === current).length || "359";
+  const counter = document.querySelector("#total-atual");
+  if (counter) counter.textContent = catalog.filter((item) => item.ano === current).length;
   form.addEventListener("submit", (event) => { event.preventDefault(); search(true); });
   searchButton.addEventListener("click", () => search(true));
   searchAll.addEventListener("click", () => {
