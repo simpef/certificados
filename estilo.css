@@ -77,6 +77,6 @@ footer a { color: var(--navy); font-weight: 700; }
 }
 @media (max-width: 410px) {
   .selo { padding-inline: 7px; }
+  form { grid-template-columns: 1fr; }
   .result { align-items: flex-start; flex-direction: column; gap: 8px; }
-  select { font-size: 14px; }
 }
