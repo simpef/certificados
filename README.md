@@ -8,7 +8,7 @@ Escolha o ano, abra a categoria e clique no PDF correspondente para visualizar o
 
 | Edição | Arquivos |
 | --- | ---: |
-| [2026](./2026/) | 295 |
+| [2026](./2026/) | 370 |
 | [2025](./2025/) | 197 |
 | [2024](./2024/) | 181 |
 | [2023](./2023/) | 249 |
