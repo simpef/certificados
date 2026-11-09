@@ -2,7 +2,7 @@
   "use strict";
   const current = 2026;
   const pageSize = 25;
-  const archive = "https://github.com/simpef/certificados/blob/main/";
+  const archive = "https://cdn.jsdelivr.net/gh/simpef/certificados@main/";
   const form = document.querySelector("#filtros");
   const query = document.querySelector("#nome");
   const year = document.querySelector("#ano");
