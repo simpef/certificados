@@ -6,3 +6,5 @@ window.CATALOGO_SIMPEF.push(
   {"ano":2026,"categoria":"Apoio Docente","nome":"Ester Liberato Pereira","pdf":"2026/Apoio Docente/Ester Liberato Pereira - 2026000396.pdf"},
   {"ano":2026,"categoria":"Apoio Docente","nome":"Janice Zarpellon Mazo","pdf":"2026/Apoio Docente/Janice Zarpellon Mazo - 2026000397.pdf"}
 );
+
+window.CATALOGO_SIMPEF.push({"ano": 2026, "categoria": "Participação", "nome": "Michaela Paulista Araujo", "pdf": "2026/Participação/Michaela Paulista Araujo - 2026000398.pdf"});
