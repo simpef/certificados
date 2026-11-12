@@ -8,7 +8,7 @@ Escolha o ano, abra a categoria e clique no PDF correspon$1375ente para visualiz
 
 | E$1375ição | Arquivos |
 | --- | ---: |
-| [2026](./2026/) | 371 |
+| [2026](./2026/) | 404 |
 | [2025](./2025/) | 197 |
 | [2024](./2024/) | 181 |
 | [2023](./2023/) | 249 |
